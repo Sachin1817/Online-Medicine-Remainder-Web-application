@@ -259,3 +259,6 @@ For issues or questions:
 - Prescription scanning
 - Multi-language support
 - Advanced reporting and analytics
+
+##for any support developer
+sachindevaraju49@gmail.com
