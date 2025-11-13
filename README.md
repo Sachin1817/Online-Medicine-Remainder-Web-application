@@ -134,6 +134,8 @@ A comprehensive web application built with Flask for managing medicine reminders
    - Enter "Medicine Reminder App"
    - Copy the 16-character password
 4. Use this App Password in your `.env` file
+5. And change the MAIL_ENABLED=False
+   to "True" value
 
 ### Other Email Providers
 - **Outlook/Hotmail**: `MAIL_SERVER=smtp-mail.outlook.com`, `MAIL_PORT=587`
@@ -260,5 +262,5 @@ For issues or questions:
 - Multi-language support
 - Advanced reporting and analytics
 
-##for any support developer
+##for any support contact developer
 sachindevaraju49@gmail.com
