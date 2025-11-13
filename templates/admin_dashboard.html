@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Medicine Reminder System{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h2><i class="fas fa-cog"></i> Admin Dashboard</h2>
+    <p class="mb-0">Manage your medicine reminder system</p>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-primary mb-4"><i class="fas fa-chart-bar"></i> System Overview</h3>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-users stat-icon"></i>
+                        <h3 class="card-title text-primary">{{ users|length }}</h3>
+                        <p class="card-text">Total Registered Users</p>
+                        <div class="progress mt-3">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="{{ users|length }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-pills stat-icon"></i>
+                        <h3 class="card-title text-success">{{ medicines|length }}</h3>
+                        <p class="card-text">Total Medicines</p>
+                        <div class="progress mt-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="{{ medicines|length }}" aria-valuemin="0" aria-valuemax="200"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-clock stat-icon"></i>
+                        <h3 class="card-title text-warning">{{ (medicines|length / users|length)|round(1) if users|length > 0 else 0 }}</h3>
+                        <p class="card-text">Avg Medicines per User</p>
+                        <div class="progress mt-3">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="{{ (medicines|length / users|length)|round(1) if users|length > 0 else 0 }}" aria-valuemin="0" aria-valuemax="10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-tasks"></i> Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="{{ url_for('admin.users') }}" class="btn btn-primary">
+                                <i class="fas fa-user-cog"></i> Manage Users
+                            </a>
+                            <a href="{{ url_for('medicines.dashboard') }}" class="btn btn-outline-primary">
+                                <i class="fas fa-eye"></i> View User Dashboard
+                            </a>
+                            <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
