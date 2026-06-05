@@ -7,20 +7,20 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Add New Medicine</h3>
+                <h3 class="card-title"><i class="fas fa-prescription-bottle-medical"></i> Add New Medicine</h3>
             </div>
             <div class="card-body">
                 <form method="POST">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Medicine Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <label for="name" class="form-label"><i class="fas fa-prescription-bottle"></i> Medicine Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Paracetamol, Lipitor" required>
                     </div>
                     <div class="mb-3">
-                        <label for="dosage" class="form-label">Dosage</label>
-                        <input type="text" class="form-control" id="dosage" name="dosage" placeholder="e.g., 1 tablet, 5ml" required>
+                        <label for="dosage" class="form-label"><i class="fas fa-weight-hanging"></i> Dosage</label>
+                        <input type="text" class="form-control" id="dosage" name="dosage" placeholder="e.g., 1 tablet, 5ml, 500mg" required>
                     </div>
                     <div class="mb-3">
-                        <label for="frequency" class="form-label">Frequency</label>
+                        <label for="frequency" class="form-label"><i class="fas fa-calendar-alt"></i> Frequency</label>
                         <select class="form-control" id="frequency" name="frequency" required>
                             <option value="">Select frequency</option>
                             <option value="Once daily">Once daily</option>
@@ -31,26 +31,28 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="times" class="form-label">Reminder Times</label>
+                        <label for="times" class="form-label"><i class="fas fa-clock"></i> Reminder Times</label>
                         <div id="time-container">
                             <div class="input-group mb-2">
                                 <input type="time" class="form-control time-input" name="times" required>
-                                <button type="button" class="btn btn-outline-secondary remove-time" style="display: none;">Remove</button>
+                                <button type="button" class="btn btn-outline-danger remove-time" style="display: none;"><i class="fas fa-trash-alt"></i> Remove</button>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-outline-primary btn-sm" id="add-time">Add Time</button>
-                        <small class="form-text text-muted">Select reminder times for the medicine</small>
+                        <button type="button" class="btn btn-outline-primary btn-sm mt-1" id="add-time"><i class="fas fa-plus"></i> Add Time</button>
+                        <div class="form-text text-muted mt-2">Add reminder times for this medicine dosage</div>
                     </div>
                     <div class="mb-3">
-                        <label for="duration" class="form-label">Duration (days)</label>
-                        <input type="number" class="form-control" id="duration" name="duration" min="1" required>
+                        <label for="duration" class="form-label"><i class="fas fa-hourglass-half"></i> Duration (days)</label>
+                        <input type="number" class="form-control" id="duration" name="duration" min="1" placeholder="e.g., 7, 30" required>
                     </div>
                     <div class="mb-3">
-                        <label for="start_date" class="form-label">Start Date</label>
+                        <label for="start_date" class="form-label"><i class="fas fa-calendar-day"></i> Start Date</label>
                         <input type="date" class="form-control" id="start_date" name="start_date" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Medicine</button>
-                    <a href="{{ url_for('medicines.dashboard') }}" class="btn btn-secondary">Cancel</a>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary btn-pulse me-2"><i class="fas fa-plus-circle"></i> Add Medicine</button>
+                        <a href="{{ url_for('medicines.dashboard') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

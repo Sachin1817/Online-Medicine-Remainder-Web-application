@@ -9,9 +9,9 @@
 
 <div class="row">
     <div class="col-12">
-        <div class="d-flex justify-content-between align-items-center mb-4" style="background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%); padding: 1rem; border-radius: 10px; border: 1px solid rgba(76, 175, 80, 0.3);">
-            <h3 class="text-success mb-0"><i class="fas fa-list-ul"></i> Your Medicines</h3>
-            <a href="{{ url_for('medicines.add_medicine') }}" class="btn add-medicine-btn">
+        <div class="dashboard-control mb-4">
+            <h3 class="mb-0 text-primary"><i class="fas fa-list-ul"></i> Your Medicines</h3>
+            <a href="{{ url_for('medicines.add_medicine') }}" class="btn add-medicine-btn btn-pulse">
                 <i class="fas fa-plus"></i> Add New Medicine
             </a>
         </div>
@@ -49,13 +49,15 @@
                 {% endfor %}
             </div>
         {% else %}
-            <div class="alert alert-info text-center">
-                <i class="fas fa-info-circle fa-3x mb-3"></i>
-                <h4>No medicines added yet</h4>
-                <p>Start by adding your first medicine to get timely reminders and stay healthy.</p>
-                <a href="{{ url_for('medicines.add_medicine') }}" class="btn add-medicine-btn">
-                    <i class="fas fa-plus"></i> Add Your First Medicine
-                </a>
+            <div class="card text-center p-5 border-0 shadow-sm fade-in-up" style="background: rgba(15, 23, 42, 0.35); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; backdrop-filter: blur(20px);">
+                <div class="card-body">
+                    <i class="fas fa-prescription-bottle-medical fa-4x mb-4" style="animation: floatPill 3s ease-in-out infinite; display: inline-block; background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="fw-bold mb-2" style="background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">No Medicines Scheduled Yet</h3>
+                    <p class="text-muted mb-4">Start by scheduling your first medicine to receive timely automated reminders.</p>
+                    <a href="{{ url_for('medicines.add_medicine') }}" class="btn add-medicine-btn btn-pulse">
+                        <i class="fas fa-plus"></i> Add Your First Medicine
+                    </a>
+                </div>
             </div>
         {% endif %}
     </div>
